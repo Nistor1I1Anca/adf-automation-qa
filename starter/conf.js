@@ -5,10 +5,12 @@ require("babel-register")({
 });
 
 exports.config = {
-  specs: ['spec.js'],
+  specs: ['specs/spec.js'],
   framework: 'jasmine',
 
   onPrepare: () => {
+      global.globalVariables = require('./globalVariables');
+
       // set browser size...
       browser.manage().window().setSize(1024, 800);
 
